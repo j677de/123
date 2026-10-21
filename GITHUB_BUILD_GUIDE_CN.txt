@@ -1,0 +1,21 @@
+勇者之路 v5.2：GitHub 云端编译 APK 指南
+
+这个工程已加入 .github/workflows/android-build.yml。GitHub Actions 会使用云端 Ubuntu 环境安装 Java 17、Gradle 8.9、Android SDK 35，然后运行：
+  gradle --no-daemon --stacktrace :app:assembleDebug
+
+第一次设置（用手机浏览器也可以）：
+1. 登录 GitHub，创建一个新仓库，例如 YongzheLocalServer。建议选 Private（私有）。
+2. 在仓库页面选择 Add file -> Upload files。
+3. 解压本 ZIP，把工程文件夹里的所有内容上传到仓库根目录。注意：.github 文件夹内的 workflow 也必须上传；如果网页隐藏点开头的文件夹，请确认它确实在仓库的 Code 页面可见。
+4. 点 Commit changes 保存。
+5. 打开仓库顶部 Actions 标签页，选择 Build Android APK。如果是第一次使用 Actions，按页面提示启用工作流。
+6. 打开最新一次运行记录。绿色勾号表示工作流成功；红叉表示失败，点进去打开 Build debug APK 日志即可看到错误。
+7. 成功后回到该次运行页面底部的 Artifacts，下载 YongzheLocalServer-debug-apk.zip。解压后得到 app-debug.apk。
+
+也可以不先上传源码就手动运行：仓库 Actions -> Build Android APK -> Run workflow。
+
+重要说明：
+- 工作流目前执行的是 Android debug 构建，不是发布签名 APK。
+- 首次构建仍可能暴露源码编译错误；如果失败，请把 Actions 中 Build debug APK 步骤的完整错误文本或截图发回，继续修复。
+- GitHub Actions 不会替代游戏客户端联调，也不代表全部游戏功能已经实现。
+- 不要把密码、访问令牌、签名密钥等秘密写入源码或提交到仓库。

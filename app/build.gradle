@@ -1,0 +1,21 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.yongzhe.localserver'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'com.yongzhe.localserver'
+        minSdk 26
+        targetSdk 28
+        versionCode 5
+        versionName '5.0'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
