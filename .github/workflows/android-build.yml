@@ -1,2 +1,2 @@
-if-no-files-found: error
-</CodeBlock>
+name: Build Android APK
+path: app/build/outputs/apk/debug/app-debug.apk
