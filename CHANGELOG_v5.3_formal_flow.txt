@@ -1,0 +1,9 @@
+v5.3 — formal client API alignment
+
+- /afk/maps and /afk/monsters now return top-level arrays in the standard {code,message,data} envelope expected by ApiAfkRepository.
+- Added map DTO fields consumed by the client (kind, tileManifest, level ranges, iconColor, canEnter).
+- Added monster DTO fields consumed by the client (atk/def, exp/gold, iconColor, dropGroups).
+- Added instance map and instance levels response shapes.
+- Added battle status aliases consumed by the client (isFighting/currentMapId/currentMonsterId/battleSlots/partySlots/sessionTimeSec).
+
+Important limitation: this is API-shape alignment, not a claim that original commercial map assets, original monster database, all combat events, or every game subsystem have been reproduced. The current local catalog is still a small starter catalog. Formal map art requires the corresponding map tile manifests/assets and correct original map IDs.
